@@ -1,28 +1,28 @@
-Watchfy é um aplicativo de biblioteca de filmes, animes e séries, desenvolvido com Expo e React Native, utilizando JavaScript.
+watchfy é um aplicativo de biblioteca de filmes, animes e séries, desenvolvido com Expo e React Native, utilizando JavaScript.
 
 O aplicativo permite que os usuários pesquisem e vejam informações sobre seus filmes, animes e séries favoritos, bem como salvar e gerenciar suas listas de visualização. O aplicativo também inclui recursos como avaliações de usuários e sugestões personalizadas de conteúdo com base no histórico de visualização do usuário.
 
 <h3>Instalação</h3>
 Para instalar e executar o Watchfy, siga estas etapas:
-- Clone o repositório usando o comando git clone https://github.com/seunome/watchfy.git
+- Clone o repositório usando o comando git clone https://github.com/rufedupo/watchfy-mobile.git
 - Navegue para o diretório do projeto cd watchfy
 - Instale as dependências do projeto usando o comando npm install
 - Inicie o servidor de desenvolvimento usando o comando npm start
 - O aplicativo pode ser executado em um simulador de dispositivo móvel ou em um dispositivo físico usando o aplicativo Expo.
 
-Tecnologias utilizadas
+<h3>Tecnologias utilizadas</h3>
 - Expo
 - React Native
 - JavaScript
 
-Funcionalidades
+<h3>Funcionalidades</h3>
 - Pesquisa de filmes, animes e séries
 - Visualização de informações detalhadas sobre filmes, animes e séries
 - Gerenciamento de listas de visualização
 - Avaliações de usuários
 - Sugestões personalizadas de conteúdo com base no histórico de visualização do usuário
 
-Contribuição
+<h3>Contribuição</h3>
 - Se você quiser contribuir para o desenvolvimento do Watchfy, por favor, siga as etapas abaixo:
 - Faça um fork do repositório
 - Crie um novo branch com a sua implementação (git checkout -b minha-implementacao)
