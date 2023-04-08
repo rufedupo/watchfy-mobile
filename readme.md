@@ -11,9 +11,11 @@ Para instalar e executar o Watchfy, siga estas etapas:
 - O aplicativo pode ser executado em um simulador de dispositivo móvel ou em um dispositivo físico usando o aplicativo Expo.
 
 <h3>Tecnologias utilizadas</h3>
-- Expo
+<ul>
+  <li>Expo</li>
 - React Native
 - JavaScript
+</ul>
 
 <h3>Funcionalidades</h3>
 - Pesquisa de filmes, animes e séries
