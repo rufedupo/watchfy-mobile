@@ -2,7 +2,7 @@ Watchfy é um aplicativo de biblioteca de filmes, animes e séries, desenvolvido
 
 O aplicativo permite que os usuários pesquisem e vejam informações sobre seus filmes, animes e séries favoritos, bem como salvar e gerenciar suas listas de visualização. O aplicativo também inclui recursos como avaliações de usuários e sugestões personalizadas de conteúdo com base no histórico de visualização do usuário.
 
-Instalação
+<h3>Instalação</h3>
 Para instalar e executar o Watchfy, siga estas etapas:
 - Clone o repositório usando o comando git clone https://github.com/seunome/watchfy.git
 - Navegue para o diretório do projeto cd watchfy
