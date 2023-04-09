@@ -26,7 +26,7 @@ const Routes = () => {
         tabBarShowLabel: false,
         tabBarActiveTintColor: '#E14429',
         tabBarStyle: {
-          backgroundColor: '#010412',
+          backgroundColor: '#01040E',
           borderTopWidth: 0
         }
       }}

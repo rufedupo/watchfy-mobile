@@ -1,17 +1,27 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { SafeAreaView, StyleSheet } from 'react-native'
+import { useState } from 'react'
+import SearchSection from '../../components/searchSection'
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'green',
-    height: '100%'
-  }
+	container: {
+		flex: 1,
+		backgroundColor: '#01040E',
+    paddingStart: 15,
+    paddingRight: 15
+	}
 })
 
 const Series = () => {
+  const [searchInputValue, setSearchInputValue] = useState('')
+
+  const handleSearch = () => {
+    console.log('')
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Series</Text>
-    </View>
+		<SafeAreaView style={styles.container}>
+			<SearchSection searchInputValue={searchInputValue} setSearchInputValue={setSearchInputValue} handleSearch={handleSearch} />
+		</SafeAreaView>
   )
 }
 

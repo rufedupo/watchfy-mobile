@@ -1,89 +1,101 @@
 import { 
   StatusBar, 
   StyleSheet, 
-  SafeAreaView, 
-  View, 
-  TextInput, 
-  TouchableOpacity  
+  ScrollView,
+  SafeAreaView
 } from 'react-native'
-import { Octicons } from '@expo/vector-icons'
 import Logo from '../../components/logo'
-import { Lato_400Regular, useFonts } from '@expo-google-fonts/lato'
 import { useState } from 'react'
+import Search from '../../components/search'
+import HomeSection from '../../components/homeSection'
+
+const dataJson = [
+  {
+    id: 1,
+    title: 'Matrix',
+    cover: 'https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51unGrb-AAL._AC_.jpg',
+    year: 1999,
+    duration: '2h 16m',
+    type: 'movie',
+    isFavorite: true
+  },
+  {
+    id: 2,
+    title: 'One Piece',
+    cover: 'https://img.elo7.com.br/product/zoom/1EDFF3A/big-poster-do-anime-one-piece-tamanho-90x-0-cm-lo122-one-piece.jpg',
+    year: 1999,
+    duration: '1056 Episódios',
+    type: 'anime',
+    isFavorite: true
+  },
+  {
+    id: 3,
+    title: 'Supernatural',
+    cover: 'https://m.media-amazon.com/images/I/81Oj9rnePcL.jpg',
+    year: 2005,
+    duration: '15 Temporadas',
+    type: 'serie',
+    isFavorite: false
+  },
+  {
+    id: 4,
+    title: 'Avatar',
+    cover: 'https://img.elo7.com.br/product/original/46B928F/big-poster-filme-avatar-o-caminho-da-agua-90x60-cm-lo002-presente-geek.jpg',
+    year: 2009,
+    duration: '2h 42m',
+    type: 'movie',
+    isFavorite: false
+  }
+]
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#010412',
+    backgroundColor: '#01040E',
     paddingTop: 15,
     paddingStart: 15,
     paddingEnd: 15
-  },
-  form: {
-    backgroundColor: 'rgba(51, 54, 65, 0.5)',
-    width: '100%',
-    borderRadius: 10,
-    marginTop: 20,
-    marginBottom: 20,
-    borderWidth: 1,
-    borderColor: 'rgba(51, 54, 65, 0.6)',
-    paddingLeft: 10,
-    paddingRight: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between'
-  },
-  input: {
-    width: '90%',
-    maxWidth: '90%',
-    height: 54,
-    color: 'rgba(206, 214, 214, 0.75)',
-    fontSize: 17,
-    fontFamily: 'Lato_400Regular', 
-    padding: 0
   }
 })
 
 const Home = () => {
-  const [searchInputValue, setSearchInputValue] = useState('');
-
-  const [fontLoaded] = useFonts({
-    Lato_400Regular
-  })
-
-  if (!fontLoaded) return null
+  const [searchInputValue, setSearchInputValue] = useState('')
+  const [favorites, setFavorites] = useState([''])
 
   const handleSearch = () => {
     console.log(searchInputValue)
   }
 
+  const filterData = (tab) => {
+    switch (tab) {
+      case 0: 
+        return dataJson.filter((d) => d.isFavorite === true)
+      case 1: 
+        return dataJson.filter((d) => d.type === 'movie')
+      case 2: 
+        return dataJson.filter((d) => d.type === 'serie')
+      case 3: 
+        return dataJson.filter((d) => d.type === 'anime')
+    }
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
-        barStyle = "light-content"
+        barStyle = 'light-content'
         hidden = {false}
-        backgroundColor = "#010412"
+        backgroundColor = '#01040E'
         translucent = {false}
         networkActivityIndicatorVisible = {true}
       />
       <Logo />
-      <View style={styles.form}>
-        <TextInput 
-          placeholder='Pesquisar' 
-          placeholderTextColor='rgba(206, 214, 214, 0.2)'
-          underlineColorAndroid='transparent'
-          style={styles.input}
-          value={searchInputValue}
-          onChangeText={(text) => setSearchInputValue(text)}
-        />
-        <TouchableOpacity onPress={handleSearch}>
-          <Octicons 
-            name='search' 
-            size={28} 
-            color='rgba(206, 214, 214, 0.2)' 
-          />
-        </TouchableOpacity>
-      </View>
+      <Search searchInputValue={searchInputValue} setSearchInputValue={setSearchInputValue} handleSearch={handleSearch} />
+      <ScrollView>
+        {(favorites.length > 0) && <HomeSection title='Favoritos' tab='FavoritesTab' data={filterData(0)} />}
+        <HomeSection title='Filmes' tab='MoviesTab' data={filterData(1)} />
+        <HomeSection title='Series' tab='SeriesTab' data={filterData(2)} />
+        <HomeSection title='Animes' tab='AnimesTab' data={filterData(3)} />
+      </ScrollView>
     </SafeAreaView>
   )
 }
